@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "oooh_pinky:rose_gold_helmet",
+    "oooh_pinky:rose_gold_chestplate",
+    "oooh_pinky:rose_gold_leggings",
+    "oooh_pinky:rose_gold_boots",
+    "oooh_pinky:rose_gold_sword",
+    "oooh_pinky:rose_gold_shovel",
+    "oooh_pinky:rose_gold_pickaxe",
+    "oooh_pinky:rose_gold_axe",
+    "oooh_pinky:rose_gold_hoe",
+    {
+      "id": "oooh_pinky:rose_gold_knife",
+      "required": false
+    }
+  ]
+}

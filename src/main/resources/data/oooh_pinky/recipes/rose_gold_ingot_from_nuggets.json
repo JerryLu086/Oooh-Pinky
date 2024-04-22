@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "oooh_pinky:rose_gold_nugget"
+    }
+  },
+  "result": {
+    "item": "oooh_pinky:rose_gold_ingot"
+  }
+}

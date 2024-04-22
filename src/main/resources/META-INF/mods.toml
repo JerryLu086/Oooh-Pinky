@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[32,)"
+license="MIT License"
+
+[[mods]]
+    modId="oooh_pinky"
+    version="${file.jarVersion}"
+    displayName="Oooh, Pinky!"
+    logoFile="logo.png"
+    authors="jerrylu086"
+    description=""
+    itemIcon="oooh_pinky:rose_gold_ingot"
+    configBackground="oooh_pinky:textures/block/rose_gold_block.png"
+
+[[dependencies.oooh_pinky]]
+    modId="forge"
+    mandatory=true
+    versionRange="[32,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.oooh_pinky]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16,1.17)"
+    ordering="NONE"
+    side="BOTH"
+
