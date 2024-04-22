@@ -2,18 +2,18 @@ package com.jerrylu086.oooh_pinky.items.tiers;
 
 import com.jerrylu086.oooh_pinky.OoohPinky;
 import com.jerrylu086.oooh_pinky.registry.ModTags;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.LazyValue;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.function.Supplier;
 
-public enum ModArmorMaterial implements IArmorMaterial {
+public enum ModArmorMaterial implements ArmorMaterial {
     ROSE_GOLD(OoohPinky.asResource("rose_gold").toString(), 21, new int[]{2, 5, 7, 3}, 21, SoundEvents.ARMOR_EQUIP_GOLD, 1.0F, 0.0F, () -> {
         return Ingredient.of(ModTags.ROSE_GOLD_INGOT);
     }),
@@ -27,7 +27,7 @@ public enum ModArmorMaterial implements IArmorMaterial {
     private final SoundEvent sound;
     private final float toughness;
     private final float knockbackResistance;
-    private final LazyValue<Ingredient> repairIngredient;
+    private final LazyLoadedValue<Ingredient> repairIngredient;
 
     private ModArmorMaterial(String name, int durabilityMultiplier, int[] slotProtections, int enchantmentValue, SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
         this.name = name;
@@ -37,14 +37,14 @@ public enum ModArmorMaterial implements IArmorMaterial {
         this.sound = sound;
         this.toughness = toughness;
         this.knockbackResistance = knockbackResistance;
-        this.repairIngredient = new LazyValue<>(repairIngredient);
+        this.repairIngredient = new LazyLoadedValue<>(repairIngredient);
     }
 
-    public int getDurabilityForSlot(EquipmentSlotType slot) {
+    public int getDurabilityForSlot(EquipmentSlot slot) {
         return HEALTH_PER_SLOT[slot.getIndex()] * this.durabilityMultiplier;
     }
 
-    public int getDefenseForSlot(EquipmentSlotType slot) {
+    public int getDefenseForSlot(EquipmentSlot slot) {
         return this.slotProtections[slot.getIndex()];
     }
 

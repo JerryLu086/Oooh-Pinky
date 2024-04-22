@@ -1,8 +1,8 @@
 package com.jerrylu086.oooh_pinky.items;
 
 import com.jerrylu086.oooh_pinky.core.Configuration;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
 public class SimpleBarterItem extends Item {
     public SimpleBarterItem(Properties properties) {

@@ -5,7 +5,7 @@ import com.jerrylu086.oooh_pinky.core.Configuration;
 import com.jerrylu086.oooh_pinky.data.EasyCraftingCondition;
 import com.jerrylu086.oooh_pinky.registry.ModBlocks;
 import com.jerrylu086.oooh_pinky.registry.ModItems;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,7 +21,7 @@ public class OoohPinky {
     public static final String MOD_ID = "oooh_pinky";
     public static final Logger LOGGER = LogManager.getLogger("Oooh, Pinky!");
 
-    public static final String LEGACY_ID = "rosegold";
+    public static final String LEGACY_ID = "rosegold"; // Not used anymore after 1.18, was only for remapping purpose, but I'll keep it
 
     public OoohPinky() {
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -44,9 +44,5 @@ public class OoohPinky {
 
     public static ResourceLocation asResource(String path) {
         return new ResourceLocation(MOD_ID, path);
-    }
-
-    public static ResourceLocation asResourceLegacy(String path) {
-        return new ResourceLocation(LEGACY_ID, path);
     }
 }

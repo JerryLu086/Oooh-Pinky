@@ -20,19 +20,7 @@
   },
   "conditions": [
     {
-      "values": [
-        {
-          "type": "oooh_pinky:easy_crafting"
-        },
-        {
-          "value": {
-            "tag": "forge:ingots/copper",
-            "type": "forge:tag_empty"
-          },
-          "type": "forge:not"
-        }
-      ],
-      "type": "forge:and"
+      "type": "oooh_pinky:easy_crafting"
     }
   ]
 }

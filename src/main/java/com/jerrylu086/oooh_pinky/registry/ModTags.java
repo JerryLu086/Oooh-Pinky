@@ -1,12 +1,12 @@
 package com.jerrylu086.oooh_pinky.registry;
 
-import net.minecraft.item.Item;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.Tags;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 
 public class ModTags {
     // Item
-    public static final Tags.IOptionalNamedTag<Item> ROSE_GOLD_INGOT =
-            ItemTags.createOptional(new ResourceLocation("forge", "ingots/rose_gold"));
+    public static final TagKey<Item> ROSE_GOLD_INGOT =
+            TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("forge", "ingots/rose_gold"));
 }
