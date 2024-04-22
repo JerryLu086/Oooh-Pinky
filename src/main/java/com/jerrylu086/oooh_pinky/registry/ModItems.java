@@ -1,59 +1,56 @@
 package com.jerrylu086.oooh_pinky.registry;
 
 import com.jerrylu086.oooh_pinky.OoohPinky;
-import com.jerrylu086.oooh_pinky.compat.farmersdelight.FDCompat;
 import com.jerrylu086.oooh_pinky.items.PiglinNeutralArmor;
 import com.jerrylu086.oooh_pinky.items.SimpleBarterItem;
 import com.jerrylu086.oooh_pinky.items.tiers.ModArmorMaterial;
 import com.jerrylu086.oooh_pinky.items.tiers.ModItemTier;
 
 import net.minecraft.world.item.*;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModItems {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, OoohPinky.MOD_ID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(OoohPinky.MOD_ID);
 
     // Blocks
-    public static final RegistryObject<BlockItem> ROSE_GOLD_BLOCK = ITEMS.register("rose_gold_block",
+    public static final DeferredItem<BlockItem> ROSE_GOLD_BLOCK = ITEMS.register("rose_gold_block",
             () -> new BlockItem(ModBlocks.ROSE_GOLD_BLOCK.get(), new Item.Properties()));
 
     // Essentials
-    public static final RegistryObject<Item> ROSE_GOLD_INGOT = ITEMS.register("rose_gold_ingot",
+    public static final DeferredItem<Item> ROSE_GOLD_INGOT = ITEMS.register("rose_gold_ingot",
             () -> new SimpleBarterItem(new Item.Properties()));
-    public static final RegistryObject<Item> ROSE_GOLD_NUGGET = ITEMS.register("rose_gold_nugget",
+    public static final DeferredItem<Item> ROSE_GOLD_NUGGET = ITEMS.register("rose_gold_nugget",
             () -> new Item(new Item.Properties()));
 
     // Tools & armor
-    public static final RegistryObject<SwordItem> ROSE_GOLD_SWORD = ITEMS.register("rose_gold_sword",
+    public static final DeferredItem<SwordItem> ROSE_GOLD_SWORD = ITEMS.register("rose_gold_sword",
             () -> new SwordItem(ModItemTier.ROSE_GOLD, 3, -2.2F,
                     new Item.Properties()));
-    public static final RegistryObject<ShovelItem> ROSE_GOLD_SHOVEL = ITEMS.register("rose_gold_shovel",
+    public static final DeferredItem<ShovelItem> ROSE_GOLD_SHOVEL = ITEMS.register("rose_gold_shovel",
             () -> new ShovelItem(ModItemTier.ROSE_GOLD, 1.5F, -3.0F,
                     new Item.Properties()));
-    public static final RegistryObject<PickaxeItem> ROSE_GOLD_PICKAXE = ITEMS.register("rose_gold_pickaxe",
+    public static final DeferredItem<PickaxeItem> ROSE_GOLD_PICKAXE = ITEMS.register("rose_gold_pickaxe",
             () -> new PickaxeItem(ModItemTier.ROSE_GOLD, 1, -2.8F,
                     new Item.Properties()));
-    public static final RegistryObject<AxeItem> ROSE_GOLD_AXE = ITEMS.register("rose_gold_axe",
+    public static final DeferredItem<AxeItem> ROSE_GOLD_AXE = ITEMS.register("rose_gold_axe",
             () -> new AxeItem(ModItemTier.ROSE_GOLD, 6.0F, -3.1F,
                     new Item.Properties()));
-    public static final RegistryObject<HoeItem> ROSE_GOLD_HOE = ITEMS.register("rose_gold_hoe",
+    public static final DeferredItem<HoeItem> ROSE_GOLD_HOE = ITEMS.register("rose_gold_hoe",
             () -> new HoeItem(ModItemTier.ROSE_GOLD,-2, -1,
                     new Item.Properties()));
 
-    public static final RegistryObject<Item> ROSE_GOLD_HELMET = ITEMS.register("rose_gold_helmet",
+    public static final DeferredItem<Item> ROSE_GOLD_HELMET = ITEMS.register("rose_gold_helmet",
             () -> new PiglinNeutralArmor(ModArmorMaterial.ROSE_GOLD, ArmorItem.Type.HELMET,
                     new Item.Properties()));
-    public static final RegistryObject<Item> ROSE_GOLD_CHESTPLATE = ITEMS.register("rose_gold_chestplate",
+    public static final DeferredItem<Item> ROSE_GOLD_CHESTPLATE = ITEMS.register("rose_gold_chestplate",
             () -> new PiglinNeutralArmor(ModArmorMaterial.ROSE_GOLD, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties()));
-    public static final RegistryObject<Item> ROSE_GOLD_LEGGINGS = ITEMS.register("rose_gold_leggings",
+    public static final DeferredItem<Item> ROSE_GOLD_LEGGINGS = ITEMS.register("rose_gold_leggings",
             () -> new PiglinNeutralArmor(ModArmorMaterial.ROSE_GOLD, ArmorItem.Type.LEGGINGS,
                     new Item.Properties()));
-    public static final RegistryObject<Item> ROSE_GOLD_BOOTS = ITEMS.register("rose_gold_boots",
+    public static final DeferredItem<Item> ROSE_GOLD_BOOTS = ITEMS.register("rose_gold_boots",
             () -> new PiglinNeutralArmor(ModArmorMaterial.ROSE_GOLD, ArmorItem.Type.BOOTS,
                     new Item.Properties()));
 
@@ -79,7 +76,5 @@ public class ModItems {
             event.getEntries().putAfter(new ItemStack(Items.GOLD_NUGGET), new ItemStack(ROSE_GOLD_NUGGET.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.getEntries().putAfter(new ItemStack(Items.GOLD_INGOT), new ItemStack(ROSE_GOLD_INGOT.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
-        if (ModList.get().isLoaded("farmersdelight"))
-            FDCompat.addToFDTab(event);
     }
 }

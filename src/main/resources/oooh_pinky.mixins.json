@@ -3,7 +3,6 @@
   "package": "com.jerrylu086.oooh_pinky.mixin",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
-  "refmap": "oooh_pinky.refmap.json",
   "mixins": [
     "PiglinAiMixin"
   ],

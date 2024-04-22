@@ -1,16 +1,16 @@
 package com.jerrylu086.oooh_pinky.core;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.config.ModConfig;
+import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class Configuration {
-    public static ForgeConfigSpec COMMON;
-    public static ForgeConfigSpec.BooleanValue EASY_CRAFTING;
-    public static ForgeConfigSpec.BooleanValue ROSE_GOLD_BARTERING;
+    public static ModConfigSpec COMMON;
+    public static ModConfigSpec.BooleanValue EASY_CRAFTING;
+    public static ModConfigSpec.BooleanValue ROSE_GOLD_BARTERING;
 
     public static void init() {
-        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+        ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
         EASY_CRAFTING =
                 builder.comment("If you have other mods loaded, you might want to make rose gold not that easy to get (for example, Create).")

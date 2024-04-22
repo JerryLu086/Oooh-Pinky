@@ -1,18 +1,12 @@
 package com.jerrylu086.oooh_pinky;
 
-import com.jerrylu086.oooh_pinky.compat.farmersdelight.FDCompat;
 import com.jerrylu086.oooh_pinky.core.Configuration;
-import com.jerrylu086.oooh_pinky.data.EasyCraftingCondition;
 import com.jerrylu086.oooh_pinky.registry.ModBlocks;
+import com.jerrylu086.oooh_pinky.registry.ModCodecs;
 import com.jerrylu086.oooh_pinky.registry.ModItems;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.crafting.CraftingHelper;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -23,25 +17,14 @@ public class OoohPinky {
 
     public static final String LEGACY_ID = "rosegold"; // Not used anymore after 1.18, was only for remapping purpose, but I'll keep it
 
-    public OoohPinky() {
-        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
-        modEventBus.addListener(this::setup);
+    public OoohPinky(IEventBus modEventBus) {
         Configuration.init();
 
         ModItems.ITEMS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
-
-        if (ModList.get().isLoaded("farmersdelight"))
-            FDCompat.init();
+        ModCodecs.CODECS.register(modEventBus);
 
         modEventBus.addListener(ModItems::addToTabs);
-
-        MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    private void setup(final FMLCommonSetupEvent event) {
-        CraftingHelper.register(new EasyCraftingCondition.Serializer());
     }
 
     public static ResourceLocation asResource(String path) {
