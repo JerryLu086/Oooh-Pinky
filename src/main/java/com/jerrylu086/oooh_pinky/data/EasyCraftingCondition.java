@@ -16,7 +16,7 @@ public class EasyCraftingCondition implements ICondition {
     }
 
     @Override
-    public boolean test() {
+    public boolean test(IContext context) {
         return Configuration.EASY_CRAFTING.get();
     }
 
