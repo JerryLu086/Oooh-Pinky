@@ -40,31 +40,38 @@ public enum ModArmorMaterial implements IArmorMaterial {
         this.repairIngredient = new LazyValue<>(repairIngredient);
     }
 
+    @Override
     public int getDurabilityForSlot(EquipmentSlotType slot) {
         return HEALTH_PER_SLOT[slot.getIndex()] * this.durabilityMultiplier;
     }
 
+    @Override
     public int getDefenseForSlot(EquipmentSlotType slot) {
         return this.slotProtections[slot.getIndex()];
     }
 
+    @Override
     public int getEnchantmentValue() {
         return this.enchantmentValue;
     }
 
+    @Override
     public SoundEvent getEquipSound() {
         return this.sound;
     }
 
+    @Override
     public Ingredient getRepairIngredient() {
         return this.repairIngredient.get();
     }
 
     @OnlyIn(Dist.CLIENT)
+    @Override
     public String getName() {
         return this.name;
     }
 
+    @Override
     public float getToughness() {
         return this.toughness;
     }
@@ -72,6 +79,7 @@ public enum ModArmorMaterial implements IArmorMaterial {
     /**
      * Gets the percentage of knockback resistance provided by armor of the material.
      */
+    @Override
     public float getKnockbackResistance() {
         return this.knockbackResistance;
     }
