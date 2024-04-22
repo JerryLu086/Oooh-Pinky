@@ -35,6 +35,8 @@ public class OoohPinky {
         if (ModList.get().isLoaded("farmersdelight"))
             FDCompat.init();
 
+        modEventBus.addListener(ModItems::addToTabs);
+
         MinecraftForge.EVENT_BUS.register(this);
     }
 

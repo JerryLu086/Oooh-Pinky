@@ -8,7 +8,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
@@ -58,10 +58,9 @@ public abstract class PiglinAiMixin {
     private static void getBarterResponseItems(Piglin piglin, CallbackInfoReturnable<List<ItemStack>> cir, LootTable loots) {
         // This looks so weird
         if (piglin.getPersistentData().getBoolean(SPECIAL_BARTER_DATA_KEY))
-            cir.setReturnValue(piglin.level.getServer().getLootTables().get(ROSE_GOLD_BARTERING_PATH)
-                    .getRandomItems((new LootContext.Builder((ServerLevel) piglin.level))
+            cir.setReturnValue(piglin.level().getServer().getLootData().getLootTable(ROSE_GOLD_BARTERING_PATH)
+                    .getRandomItems((new LootParams.Builder((ServerLevel) piglin.level()))
                             .withParameter(LootContextParams.THIS_ENTITY, piglin)
-                            .withRandom(piglin.level.random)
                             .create(LootContextParamSets.PIGLIN_BARTER)));
     }
 }
