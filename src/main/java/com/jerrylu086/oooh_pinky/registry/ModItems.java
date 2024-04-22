@@ -6,8 +6,6 @@ import com.jerrylu086.oooh_pinky.items.SimpleBarterItem;
 import com.jerrylu086.oooh_pinky.items.tiers.ModArmorMaterial;
 import com.jerrylu086.oooh_pinky.items.tiers.ModItemTier;
 
-// import net.minecraft.item;
-// import net.minecraftforge.fml.RegistryObject;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraftforge.registries.DeferredRegister;
